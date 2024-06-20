@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Search engine for searching matching string</title>
+    <script src="match.js" type="text/javascript"></script>
+</head>
+<body>
+    <form action="match.php" method="get">
+        <fieldset>
+            <legend>Search Engine with AJAX</legend>
+            <tr>
+                <td><label>Enter sub string:</label></td>
+                <td><input type="text" size="40" id="txtHint" onkeyup="search(this.form);"></td>
+            </tr>
+            <tr>
+            <td colspan="2"><p>Matches:<span id="result"></span></p></td>
+            </tr>
+        </fieldset>
+    </form>
+   
+</body>
+</html>
