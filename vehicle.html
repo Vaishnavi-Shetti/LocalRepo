@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vehicle Registration portal</title>
+    <script type="text/javascript">
+        function submitquery(obj){
+            let vehicleNo=obj.txt.value;
+            if(window.XMLHttpRequest){
+                xmlhttp2=new XMLHttpRequest();
+            }
+            else{
+                xmlhttp2=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            xmlhttp2.onreadystatechange=function(){
+                if(xmlhttp2.readyState==4 && xmlhttp2.status==200){
+                    document.getElementById("result").innerHTML=xmlhttp2.responseText;
+                }
+            }
+
+            xmlhttp2.open("get","vehicle.php?vehicleRegNo="+vehicleNo,true);
+            xmlhttp2.send();
+            document.getElementById("txt").value="";
+        }
+    </script>
+</head>
+<body>
+    <form action="vehicle.php" method="get">
+        <fieldset>
+            <legend>Vehicle Registration details</legend>
+            <table>
+                <tr><td><label>Enter vehicle registatrion number:</label></td>
+                    <td><input type="text" id="txt" name="txt" placeholder="Enter here"></td>
+                </tr>
+                <tr><td colspan="2"><input type="button" value="submit" id="btnsbt" name="btnsbt" onclick="submitquery(this.form)"></td></tr>
+            </table>
+            <div id="result"></div>
+        </fieldset>
+    </form>
+    
+</body>
+</html>
